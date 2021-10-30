@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+ 
+  <head>
+      <link type="text/css" rel='stylesheet' href='style.css' />
+  </head>
+  
+  <body>
+    <form action="/edit" method="post">
+        <input type="text" name="name" value="<%- edit.name %>">
+        <select name="stock" id="">
+          <option value="在庫あり">在庫あり</option>
+          <option value="在庫なし">在庫なし</option>
+        </select>
+        <input type="text" name="lastDay" value="<%- edit.lastDay %>">
+        <input type="hidden" name="id" value="<%= edit.id %>">
+        <button type="submit" name="button">編集</button>
+    </form>
+  </body>
+ 
+</html>

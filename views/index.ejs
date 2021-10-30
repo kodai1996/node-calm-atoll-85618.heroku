@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <title>Document</title>
+  </head>
+
+  <body>  
+    <h1>日用品在庫チェッカー</h1>
+
+    <div class="main">
+      <div class="casea">
+        <h3><span class="case">ケースA</span></h3>
+          <div class="create">
+            <h4>★アイテムを追加★</h4>
+            <form action="/create" method="POST">
+              <input type="text" name="name" placeholder="品名">
+              <select name="stock" id="">
+                <option value="在庫あり">在庫あり</option>
+                <option value="在庫なし">在庫なし</option>
+              </select>
+              <input type="text" name="lastDay" placeholder="最終購入日">
+              <input type="submit" id="submit">
+            </form>
+          </div>
+  
+          <div class="items">
+            <table border="1">
+              <tr>
+                <th>品名</th>
+                <th>在庫の有無</th>
+                <th>最終購入日</th>
+                <th>削除</th>
+                <th>編集</th>
+              </tr>
+                <% items.forEach((item) => { %>
+                  <% if(item.aorb == "a"){ %>
+                    <tr>
+                      <th><%= item.name %></th>
+                      <% if(item.stock == "在庫あり"){ %>
+                        <th><%= item.stock %></th>
+                      <% }else { %>
+                        <th class="exist"><%= item.stock %></th>
+                      <% } %>
+                      <th><%= item.lastDay %></th>
+                      <th>
+                        <form action="/delete" method="POST">
+                          <input type="hidden" name="id" value="<%= item.id %>">
+                          <button type="submit" name="button">削除</button>
+                        </form>
+                      </th>
+                      <th>
+                        <form action="./edit" method="get">
+                          <input type="hidden" name="id" value="<%= item.id %>">
+                          <button type="submit">編集</button>
+                        </form>
+                      </th>
+                    </tr>
+                  <% } %>
+                <% }) %>
+            </table>
+          </div>
+      </div>
+  
+      <div class="caseb">
+        <h3><span class="case">ケースB</span></h3>
+        <div class="create">
+          <h4>★アイテムを追加★</h4>
+          <form action="/create2" method="POST">
+            <input type="text" name="name" placeholder="品名">
+            <select name="stock" id="">
+              <option value="在庫あり">在庫あり</option>
+              <option value="在庫なし">在庫なし</option>
+            </select>
+            <input type="text" name="lastDay" placeholder="最終購入日">
+            <input type="submit" id="submit">
+          </form>
+         </div> 
+  
+          <div class="items">
+            <table border="1">
+              <tr>
+                <th>品名</th>
+                <th>在庫の有無</th>
+                <th>最終購入日</th>
+                <th>削除</th>
+                <th>編集</th>
+              </tr>
+              <% items.forEach((item) => { %>
+                <% if(item.aorb == "b"){ %>
+                  <tr>
+                    <th><%= item.name %></th>
+                    <% if(item.stock == "在庫あり"){ %>
+                      <th><%= item.stock %></th>
+                    <% }else { %>
+                      <th class="exist"><%= item.stock %></th>
+                    <% } %>
+                    <th><%= item.lastDay %></th>
+                    <th>
+                      <form action="/delete" method="POST">
+                        <input type="hidden" name="id" value="<%= item.id %>">
+                        <button type="submit" name="button2">削除</button>
+                      </form>
+                    </th>
+                    <th>
+                      <form action="./edit" method="get">
+                        <input type="hidden" name="id" value="<%= item.id %>">
+                        <button type="submit">編集</button>
+                      </form>
+                    </th>
+                  </tr>
+                <% } %>
+              <% }) %>
+            </table>
+          </div>
+      </div>
+    </div>
+
+    <!--htmlからのコピー -->
+  </body>
+</html>

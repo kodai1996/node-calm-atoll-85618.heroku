@@ -1,0 +1,55 @@
+
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: solid 1px black;
+}
+
+h4 {
+  margin: 0;
+}
+
+.exist {
+  color: red;
+}
+
+.casea {
+  border: 1px solid black;
+  padding: 10px;
+  width: 95%;
+  margin: 0 auto 10px;
+}
+
+.caseb {
+  border: 1px solid black;
+  padding: 10px;
+  width: 95%;
+  margin: 0 auto 10px;
+}
+
+.case {
+  border-bottom: 1px solid gray;
+  width: 13%;
+}
+
+.create {
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px){
+  .main {
+    display: flex;
+  }
+  
+  .casea {
+    margin-right: 5%;
+    width: 45%
+  }
+
+  .caseb {
+    width: 45%
+  }
+};
